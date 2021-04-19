@@ -1,41 +1,4 @@
- var fixedArray = [{
-         month: 1,
-         payment: 269.53,
-         principal: 232.03,
-         interest: 37.50,
-         totalInterest: 37.50,
-         balance: 14767.97,
-     },
-     {
-         month: 2,
-         payment: 269.53,
-         principal: 232.61,
-         interest: 36.92,
-         totalInterest: 74.42,
-         balance: 14535.36,
-     },
- ];
  var curPayments = [];
- // // the default display is all events
- // var filteredEvents = eventsArray;
-
- // function buildDropDown() {
- //     var eventDD = document.getElementById("eventDropDown");
-
- //     let distinctEvents = [...new Set(eventsArray.map((ev) => ev.city))];
-
- //     let linkHTMLEnd =
- //         '<div class="dropdown-divider"></div><a class="dropdown-item" onclick="getEvents(this)" data-string="All" >All</a>';
- //     let resultHTML = "";
-
- //     for (let i = 0; i < distinctEvents.length; i++) {
- //         resultHTML += `<a class="dropdown-item" onclick="getEvents(this)" data-string="${distinctEvents[i]}">${distinctEvents[i]}</a>`;
-
- //     }
- //     resultHTML += linkHTMLEnd;
- //     eventDD.innerHTML = resultHTML;
- //     displayStats();
- //buildPaymentSchedule();
 
  // When the user clicks the button
  function buildPaymentSchedule() {
@@ -112,13 +75,10 @@
      const resultsBody = document.getElementById("mortgateResults");
      // Clear table first
      resultsBody.innerHTML = "";
-     //curEvents = JSON.parse(localStorage.getItem("paymentsArray")) || [];
 
      if (curPayments.length == 0) {
          curPayments = paymentsArray;
      }
-
-     // same as importNode (can be outside this html)
 
      for (let i = 0; i < curPayments.length; i++) {
          const dataRow = document.importNode(template.content, true);
