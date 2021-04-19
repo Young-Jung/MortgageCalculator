@@ -17,6 +17,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/mortgage.css">
+    <link rel="stylesheet" href="/css/prismTomorrow.css">
 </head>
 
 <body>
@@ -68,21 +69,119 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-7 col-md-7 col-lg">
+                    <div class="col">
+                        <section>
+                            <p class="text-dark">
+                                The application populates three sections using the following
+                                functions:
+                            </p>
+                            <ul class="text-dark">
+                                <li>buildPaymentSchedule</li>
+                                <li>getPayments</li>
+                                <li>displayData</li>
+                                <li>displayStats</li>
+                            </ul>
+                            <h6 class="card-text ml-1 mb-3 text-white">
+                                Click the section links below to learn more about the code.
+                            </h6>
+                        </section>
+                        <!-- Collapsible Sections -->
+                        <div class="accordion" id="accordionMortgageCalculator">
+                            <!-- Build Payment Schedule -->
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                                            data-target="#collapseBuildPaymentSchedule" aria-expanded="true"
+                                            aria-controls="collapseBuildPaymentSchedule">
+                                            Build Payment Schedule
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseBuildPaymentSchedule" class="collapse show"
+                                    aria-labelledby="headingOne" data-parent="#accordionMortgageCalculator">
+                                    <div class="card-body">
+                                        <h5>Build Payment Schedule</h5>
+                                        <p class="mb-3">
+                                            This function is the entry point for the application.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Lines 8</span>
+                                            Validate form data.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Line 9</span>
+                                            Returns the object including the calculated array of payments and the
+                                            summary object.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Line 10</span>
+                                            Display the calculated array of payments and the statistics of payments.
+                                        </p>
 
 
-                    </div>
 
-                </div>
-                <!-- <div class="row">
+                                        <!-- Start Code -->
+                                        <pre class="line-numbers"><code class="language-javascript">// Build Payment Schedule
+ function buildPaymentSchedule() {
+     // Validation first
+     let amt = parseFloat(document.getElementById("newLoanAmt").value);
+     let year = parseInt(document.getElementById("newPayPeriod").value);
+     let rate = parseFloat(document.getElementById("newRate").value);
 
-                    <div class="col-sm-6 order-first order-md-2">
-                        <img src="/img/TacoCat_NoLetter.png" class="img-fluid p-2 ">
-                    </div>
-                </div> -->
-                <div class="row">
-                    <div class="col-lg-10 col-md-10 line-numbers">
-                        <pre><code class="language-javascript">
+     if (isValidInput(amt, year, rate)) {
+         paymentDS = getPayments(amt, (year * 12), rate);
+         displayPart(paymentDS);
+     }
+ }
+</code></pre>
+                                        <!-- End Code -->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseGetPayments" aria-expanded="false"
+                                            aria-controls="collapseGetPayments">
+                                            Get Payments detail and summary
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseGetPayments" class="collapse" aria-labelledby="headingTwo"
+                                    data-parent="#accordionMortgageCalculator">
+                                    <div class="card-body">
+                                        <h5>Get Payments detail and summary</h5>
+                                        <p class="mb-3">
+                                            This function is to return payments detail and summary.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Lines 1-4</span>
+                                            The object includes payments detail and summary.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Line 8</span>
+                                            Calculate monthly payment.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Line 16-30</span>
+                                            Push the calculated value of payments to payments array.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Line 31-34</span>
+                                            Set the summary of payments to summary object.
+                                        </p>
+
+                                        <!-- Start Code -->
+                                        <pre class="line-numbers"><code class="language-javascript">
+var paymentDS = {
+     paymentsArray: [],
+     summary: {}
+ };
+
 function getPayments(amtLoaned, term, rate) {
      let monthPayments = (amtLoaned) * (rate / 1200) / (1 - (Math.pow((1 + rate / 1200), (-term))));
 
@@ -105,14 +204,101 @@ function getPayments(amtLoaned, term, rate) {
          obj["totalInterest"] = totalInterest;
          remainBalance = remainBalance - principalPay;
          obj["balance"] = remainBalance;
-         curPayments.push(obj);
+         paymentDS.paymentsArray.push(obj);
      }
+     paymentDS.summary.monthPayments = monthPayments;
+     paymentDS.summary.totalPayments = amtLoaned;
+     paymentDS.summary.totalInterest = totalInterest;
+     paymentDS.summary.totalCost = amtLoaned + totalInterest;
+     return paymentDS;
+}
+</code></pre>
+                                        <!-- End Code -->
 
-     displaySummary(monthPayments, amtLoaned, totalInterest);
-     return curPayments;
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseDisplayPart" aria-expanded="false"
+                                            aria-controls="collapseDisplayPart">
+                                            Display Payments detail and summary
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseDisplayPart" class="collapse" aria-labelledby="headingThree"
+                                    data-parent="#accordionMortgageCalculator">
+                                    <div class="card-body">
+                                        <h5>Display Payments detail and summary</h5>
+                                        <p class="mb-3">
+                                            This function is to display payments detail and summary.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Lines 2-5</span>
+                                            The function call the functions display payments detail and summary.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Line 7-25</span>
+                                            Display the calcuated payments detail.
+                                        </p>
+                                        <p>
+                                            <span class="badge badge-info">Line 27-33</span>
+                                            Display the summary of Payments.
+                                        </p>
+
+                                        <!-- Start Code -->
+                                        <pre class="line-numbers"><code class="language-javascript">
+ function displayPart(paymentDS) {
+     displayData(paymentDS.paymentsArray);
+     displaySummary(paymentDS.summary);
  }
-                            </code>
-                        </pre>
+
+ function displayData(curPayments) {
+     const template = document.getElementById("Mortgage-Data-Template");
+     const resultsBody = document.getElementById("mortgateResults");
+     // Clear table first
+     resultsBody.innerHTML = "";
+
+     for (let i = 0; i < curPayments.length; i++) {
+         const dataRow = document.importNode(template.content, true);
+         dataRow.getElementById("month").textContent = curPayments[i].month;
+         dataRow.getElementById("payment").textContent = (curPayments[i].payment).toFixed(2);
+         dataRow.getElementById("principal").textContent = (curPayments[i].principal).toFixed(2);
+         dataRow.getElementById("interest").textContent = (curPayments[i].interest).toFixed(2);
+         dataRow.getElementById("totalInterest").textContent = (curPayments[i].totalInterest).toFixed(2);
+         dataRow.getElementById("balance").textContent = Math.abs((curPayments[i].balance)).toFixed(2);
+
+         // Add the row to the page
+         resultsBody.appendChild(dataRow);
+     }
+ }
+
+ function displaySummary(summary) {
+
+     document.getElementById("monthlyPayment").innerHTML = displayTwoDigit(summary.monthPayments);
+     document.getElementById("totalPrincipal").innerHTML = displayTwoDigit(summary.totalPayments);
+     document.getElementById("totalInterest").innerHTML = displayTwoDigit(summary.totalInterest);
+     document.getElementById("totalCost").innerHTML = displayTwoDigit(summary.totalCost);
+ }
+
+ function displayTwoDigit(amt) {
+     return amt.toLocaleString('en-US', {
+         style: 'currency',
+         currency: 'USD',
+     });
+ }
+
+                                            </code></pre>
+                                        <!-- End Code -->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
