@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Mortage Calculator - A Coding Challenge</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicons -->
+    <link href="/img/calculator.png" rel="icon">
+    <link href="/img/favicon_apple_touch_trans.png" rel="apple-touch-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-twilight.min.css"
+        integrity="sha512-akb4nfKzpmhujLUyollw5waBPeohuVf0Z5+cL+4Ngc4Db+V8szzx6ZTujguFjpmD076W8LImVIbOblmQ+vZMKA=="
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/mortgage.css">
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="/img/favicon_apple_touch_trans.png" width="50"> Mortgage Loan Calculator</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="app.html">The App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="code.html">See The Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/Young-Jung/MortgageCalculator"
+                                target="_blank">Get The
+                                Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://youngjung.netlify.app/" target="_blank">About</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="dogContainer">
+            <div class="row">
+                <div class="col-sm-6 pt-3">
+                    <h3>Mortgage Loan Calculator</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 bg-light pt-2">
+                    <!-- <div class="table-responsive pt-2" style="height:600px; overflow:"> -->
+
+                    <form role="form" id="CalculatorForm">
+                        <div class="form-group">
+                            <label for="newLoanAmt">Loan Amount ($):</label>
+                            <input type="number" class="form-control" id="newLoanAmt" placeholder="Loan Amount"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPayPeriod">Term (Months):</label>
+                            <input type="number" class="form-control" id="newPayPeriod" placeholder="Term" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newRate">Interest Rate(%):</label>
+                            <input type="number" class="form-control" id="newRate" placeholder="Rate" required>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="button" class="btn" onclick="buildPaymentSchedule()"
+                                style="background-color: #4fb1eb;">Calculate</button>
+
+                        </div>
+                    </form>
+                    <!-- </div> -->
+                </div>
+                <div class="col-sm-6">
+                    <center><em>
+                            <h5>Your Monthly Payments</h5>
+                        </em>
+                    </center>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr style="height:100px;">
+                                <td colspan="2" class="text-center font-weight-bolder h1" id="monthlyPayment">
+                                    <!-- <h1><span id="monthlyPayment"></span></h1> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Total Principal</td>
+                                <td class="text-right">
+                                    <span id="totalPrincipal"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Total Interest</td>
+                                <td id="totalInterest" class="text-right"></td>
+                            </tr>
+                            <tr>
+                                <td>Total Cost</td>
+                                <td id="totalCost" class="text-right font-weight-bold"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 p-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 p-0">
+                    <div class="table-responsive" style="height:600px; overflow: scroll;">
+                        <!-- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addEvent">
+                            Add Event
+                        </button> -->
+                        <table class="table table-striped mb-0" id="paymentsTable">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Payment</th>
+                                    <th>Principal</th>
+                                    <th>Interest</th>
+                                    <th>Total Interest</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mortgateResults">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 text-muted">&copy; Young Jung 2021</div>
+                <div class="col-lg-9 col-md-6 col-sm-6 text-muted" style="font-size:0.7rem;text-align: right;">
+                    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+                    from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <template id="Mortgage-Data-Template">
+        <tr>
+            <td id="month"></td>
+            <td id="payment"></td>
+            <td id="principal"></td>
+            <td id="interest"></td>
+            <td id="totalInterest"></td>
+            <td id="balance"></td>
+        </tr>
+    </template>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <script src="/js/mortgage.js"> </script>
+
+</body>
+
+</html>

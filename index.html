@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Mortage Calculator Events - A Coding Challenge</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicons -->
+    <link href="/img/calculator.png" rel="icon">
+    <link href="/img/favicon_apple_touch_trans.png" rel="apple-touch-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-twilight.min.css"
+        integrity="sha512-akb4nfKzpmhujLUyollw5waBPeohuVf0Z5+cL+4Ngc4Db+V8szzx6ZTujguFjpmD076W8LImVIbOblmQ+vZMKA=="
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/mortgage.css">
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="/img/favicon_apple_touch_trans.png" width="50"> Mortgage Loan Calculator</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app.html">The App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="code.html">See The Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/Young-Jung/MortgageCalculator"
+                                target="_blank">Get The
+                                Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://youngjung.netlify.app/" target="_blank">About</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    </div>
+    <main role="main" class="container">
+        <div class="container-fluid">
+            <div class="dogContainer">
+                <div class="row">
+                    <div class="col">
+                        <h1 style="margin-top: 30px;">Mortgage Loan Calculator: A Coding Challenge</h1>
+                        <strong>Mortgage Loan Calculator estimates monthly payment.</strong>
+                        <br><br>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7 col-md-7 col-lg">
+                        You can input a different loan amount, length of loan, interest rate to calculate monthly
+                        payment, total interest, and total cost.<br>
+                        <hr>
+                        <strong>Formulas Used</strong>​
+                        <br>
+                        <strong>Total Monthly Payment</strong> = (amount loaned) * (rate/1200) / (1 – (1 +
+                        rate/1200)(-Number of Months) )
+                        <br>
+                        <strong>Remaining Balance</strong> before the very first month equals the amount of the
+                        loan
+                        <br>
+                        <strong>Interest Payment</strong> = Previous Remaining Balance * rate/1200
+                        <br>
+                        <strong>Principal Payment</strong> = Total Monthly Payment - Interest Payment
+                        <br>
+                        At end each month, <strong>Remaining Balance</strong> = Previous Remaining Balance -
+                        principal payments
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-6 order-first order-md-2">
+                        <img src="/img/debt.png" class="img-fluid p-2 ">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="margin-top: 40px;">
+                        This program was made using HTML5, CSS3, Bootstrap 4, JavaScript, and jQuery.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg col-md-7 col-sm-6">
+                        <div class="content" style="margin-top: 40px;">
+                            <img class="icon service-icon madeBy" src="/img/html5.png" width="50" alt="html5">
+                            <img class="icon service-icon madeBy" src="/img/css3.png" width="50" alt="css3">
+                            <img class="icon service-icon madeBy madeBy" src="/img/apple-touch-icon.png" width="50"
+                                alt="bootstrap4">
+                            <img class="icon service-icon madeBy" src="/img/javascript.png" width="50" alt="javascript">
+                            <img class="icon service-icon madeBy" src="/img/jquery.png" width="50" alt="jquery">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+
+
+
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 text-muted">&copy; Young Jung 2021</div>
+                <div class="col-lg-9 col-md-6 col-sm-6 text-muted" style="font-size:0.7rem;text-align: right;">
+                    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+                    from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <template id="Data-Template">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <!-- Button Events-->
+    <script src="/js/mortgage.js"></script>
+</body>
+
+</html>

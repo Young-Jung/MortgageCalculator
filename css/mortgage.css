@@ -1,0 +1,35 @@
+Swal.fire( {
+
+        title: 'SweetAlert2 + Bootstrap 4',
+        input: 'text',
+        buttonsStyling: false,
+        showCancelButton: true,
+        customClass: {
+            confirmButton: 'btn btn-primary btn-lg',
+            cancelButton: 'btn btn-danger btn-lg',
+            loader: 'custom-loader'
+        }
+
+        ,
+        loaderHtml: '<div class="spinner-border text-primary"></div>',
+        preConfirm: ()=> {
+            Swal.showLoading() return new Promise((resolve)=> {
+                    setTimeout(()=> {
+                            resolve(true)
+                        }
+
+                        , 5000)
+                }
+
+            )
+        }
+    }
+
+) .btn {
+    margin: 0 6px;
+}
+
+.custom-loader {
+    animation: none !important;
+    border-width: 0 !important;
+}

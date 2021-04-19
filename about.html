@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Mortage Calculator - A Coding Challenge</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicons -->
+    <link href="/img/calculator.png" rel="icon">
+    <link href="/img/favicon_apple_touch_trans.png" rel="apple-touch-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-twilight.min.css"
+        integrity="sha512-akb4nfKzpmhujLUyollw5waBPeohuVf0Z5+cL+4Ngc4Db+V8szzx6ZTujguFjpmD076W8LImVIbOblmQ+vZMKA=="
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/mortgage.css">
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="/img/favicon_apple_touch_trans.png" width="50"> Mortgage Loan Calculator</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="app.html">The App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="code.html">See The Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/Young-Jung/MortgageCalculator"
+                                target="_blank">Get The
+                                Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://youngjung.netlify.app/" target="_blank">About</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="container-fluid">
+            <div class="dogContainer">
+                <div class="row">
+                    <div class="col">
+                        <p>
+                        </p>
+                        <h1>Super Dog Events: A Coding Challenge</h1>
+                        SuperDog Events is an event company the produces comic cons. The marketing team has
+                        requested a
+                        site the
+                        displays stats from their events. You are given an array of event data to build a site.
+                        <br><br>
+                        <b>Given an array of objects of event data display the following:</b>
+                        <ul>
+                            <li>Total attendance by City</li>
+
+                            <li>Average Attendance by City</li>
+
+                            <li>Least attended event by City</li>
+
+                            <li>Most attended event by City</li>
+
+                            <li>Show these stats for All Events</li>
+
+                            <li>
+                                Extra Credit: Add the ability to add additional events. Store the events in local
+                                storage or a database.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7 col-md-7 col-lg">
+
+                        <p><b>Below is the array of data you are given:</b></p>
+                        <pre class=" language-js">
+                            <code class=" language-js">
+<span class="token punctuation">[</span><span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"ComicCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"New York"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"New York"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">240000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2017"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"ComicCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"New York"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"New York"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">250000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2018"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"ComicCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"New York"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"New York"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">257000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2019"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"ComicCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"San Diego"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"California"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">130000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2017"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"ComicCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"San Diego"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"California"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">140000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2018"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"ComicCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"San Diego"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"California"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">150000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2019"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"HeroesCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"Charlotte"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"North Carolina"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">40000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2017"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"HeroesCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"Charlotte"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"North Carolina"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">45000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2018"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>event<span class="token operator">:</span> <span class="token string">"HeroesCon"</span><span class="token punctuation">,</span>city<span class="token operator">:</span> <span class="token string">"Charlotte"</span><span class="token punctuation">,</span>state<span class="token operator">:</span> <span class="token string">"North Carolina"</span><span class="token punctuation">,</span>attendance<span class="token operator">:</span> <span class="token number">50000</span><span class="token punctuation">,</span>date<span class="token operator">:</span> <span class="token string">"06/01/2019"</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+                            </code>
+                        </pre>
+                    </div>
+
+                </div>
+                <div class="col-sm-6 order-first order-md-2">
+                    <img src="//superdogevents.coderfoundry.com/images/SuperDogEventsWebLogosmall.png"
+                        class="img-fluid p-2 ">
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col text-muted icon-attributed">
+                    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+                    from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 text-muted">&copy; Young Jung 2021</div>
+                <div class="col-lg-9 col-md-6 col-sm-6 text-muted" style="font-size:0.7rem;text-align: right;">
+                    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+                    from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
