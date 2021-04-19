@@ -52,7 +52,7 @@
 
  function displaySummary(curPayments) {
      let dispTotalPayments = curPayments[0].balance + curPayments[0].principal;
-     let disPay = curPayments[0].month;
+     let disPay = curPayments[0].payment;
      let disTotalInt = curPayments[curPayments.length - 1].totalInterest;
      document.getElementById("monthlyPayment").innerHTML = disPay.toLocaleString('en-US', {
          style: 'currency',
