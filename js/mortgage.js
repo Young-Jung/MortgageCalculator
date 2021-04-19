@@ -23,7 +23,7 @@
 
  function isValidInput(amt, year, rate) {
 
-     if (isNaN(amt) || isNaN(year) || isNaN(rate) || amt < 0 || year < 0 || rate < 0) {
+     if (isNaN(amt) || isNaN(year) || isNaN(rate) || amt <= 0 || year <= 0 || rate <= 0) {
          //alert("number needed!!!");
          swal(
              'Oops!',
