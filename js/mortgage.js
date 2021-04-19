@@ -17,7 +17,7 @@
          // Get some values
          paymentsArray = getPayments(amt, term, rate);
          displayData(paymentsArray);
-
+         displaySummary(paymentsArray);
      }
  }
 
@@ -47,24 +47,26 @@
          curPayments.push(obj);
      }
 
-     displaySummary(monthPayments, amtLoaned, totalInterest);
      return curPayments;
  }
 
- function displaySummary(monthPayment, totalPay, totalInt) {
-     document.getElementById("monthlyPayment").innerHTML = monthPayment.toLocaleString('en-US', {
+ function displaySummary(curPayments) {
+     let dispTotalPayments = curPayments[0].balance + curPayments[0].principal;
+     let disPay = curPayments[0].month;
+     let disTotalInt = curPayments[curPayments.length - 1].totalInterest;
+     document.getElementById("monthlyPayment").innerHTML = disPay.toLocaleString('en-US', {
          style: 'currency',
          currency: 'USD',
      });
-     document.getElementById("totalPrincipal").innerHTML = totalPay.toLocaleString('en-US', {
+     document.getElementById("totalPrincipal").innerHTML = dispTotalPayments.toLocaleString('en-US', {
          style: 'currency',
          currency: 'USD',
      })
-     document.getElementById("totalInterest").innerHTML = totalInt.toLocaleString('en-US', {
+     document.getElementById("totalInterest").innerHTML = disTotalInt.toLocaleString('en-US', {
          style: 'currency',
          currency: 'USD',
      })
-     document.getElementById("totalCost").innerHTML = (totalPay + totalInt).toLocaleString('en-US', {
+     document.getElementById("totalCost").innerHTML = (dispTotalPayments + disTotalInt).toLocaleString('en-US', {
          style: 'currency',
          currency: 'USD',
      })
@@ -76,9 +78,9 @@
      // Clear table first
      resultsBody.innerHTML = "";
 
-     if (curPayments.length == 0) {
-         curPayments = paymentsArray;
-     }
+     //  if (curPayments.length == 0) {
+     //      curPayments = paymentsArray;
+     //  }
 
      for (let i = 0; i < curPayments.length; i++) {
          const dataRow = document.importNode(template.content, true);
